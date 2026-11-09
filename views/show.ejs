@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Timeline</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+</head>
+<body>
+  <div class="container py-4">
+    <h1 class="mb-4">Timeline</h1>
+
+    <small class="text-muted"><%= formatDate(post.createdAt) %></small>
+    <p class="mt-2" style="white-space: pre-wrap;"><%= post.post %></p>
+
+    <div class="d-flex gap-2 mb-3">
+      <form action="/delete/<%= post._id %>" method="POST" onsubmit="return confirm('Delete this post?');">
+        <button type="submit" class="btn btn-danger">Delete</button>
+      </form>
+      <a href="/edit/<%= post._id %>" class="btn btn-primary">Edit Post</a>
+    </div>
+
+    <a href="/">Back to timeline</a>
+  </div>
+</body>
+</html>
